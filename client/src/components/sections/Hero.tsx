@@ -5,9 +5,9 @@ const Hero = () => {
     <section className="relative bg-primary text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div 
-          className="w-full h-full opacity-25 bg-cover bg-center"
+          className="w-full h-full opacity-30 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1566128218773-0561e5cf6a3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1569698134101-f15cde5cd66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
           }}
         ></div>
       </div>

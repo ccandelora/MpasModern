@@ -1,13 +1,17 @@
 import { Button } from '@/components/ui/button';
+import badgeImage from '../../assets/images/police-badge.svg';
 
 const Hero = () => {
   return (
     <section className="relative bg-primary text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div 
-          className="w-full h-full opacity-30 bg-cover bg-center"
+          className="w-full h-full bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1614813651404-f89d5eaa0f4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url(${badgeImage})`,
+            backgroundSize: '300px',
+            backgroundRepeat: 'repeat',
+            opacity: 0.1
           }}
         ></div>
       </div>

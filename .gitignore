@@ -4,3 +4,8 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+# Large video files
+client/src/assets/videos/6580997-uhd_3840_2160_24fps.mp4
+# Larger media files
+*.mp4
+!client/src/assets/videos/compressed/**

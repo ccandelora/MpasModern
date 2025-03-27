@@ -160,4 +160,4 @@ The application is configured for deployment to any Node.js hosting environment:
 
 ## Contact
 
-For questions or support, please reach out to [your-email@example.com] 
+For questions or support, please reach out to [chris.candelora@gmail.com] 

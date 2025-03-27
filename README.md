@@ -86,6 +86,24 @@ The MPAS website provides a comprehensive online presence for Massachusetts Poli
 └── shared/                 # Shared code (types, utils)
 ```
 
+## Media Optimization
+
+### Video Compression
+
+Large video files (like background videos) are compressed to meet GitHub's file size limits while maintaining quality:
+
+```bash
+# For compressing high-resolution videos (reduces a 117MB file to ~14MB)
+ffmpeg -i input.mp4 -vf "scale=1920:1080" -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k output.mp4
+```
+
+Compression parameters:
+- Reduced resolution from 4K (3840x2160) to 1080p (1920x1080)
+- Used H.264 codec with CRF 28 (higher value = more compression)
+- Reduced audio bitrate to 128k
+
+All compressed videos are stored in `client/src/assets/videos/compressed/`.
+
 ## Accessibility Features
 
 The site is built with accessibility in mind:

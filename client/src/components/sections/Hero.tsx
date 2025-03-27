@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import videoBackground from '../../assets/videos/6580997-uhd_3840_2160_24fps.mp4';
+import videoBackground from '../../assets/videos/compressed/background-compressed.mp4';
 
 const Hero = () => {
   return (

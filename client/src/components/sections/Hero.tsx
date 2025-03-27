@@ -7,7 +7,7 @@ const Hero = () => {
         <div 
           className="w-full h-full opacity-25 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1551634979-2b11f8c946fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1566128218773-0561e5cf6a3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')`
           }}
         ></div>
       </div>

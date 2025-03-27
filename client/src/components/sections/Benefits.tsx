@@ -34,8 +34,8 @@ const Benefits = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Button asChild className="bg-accent hover:bg-accent/90 text-white">
-            <a href="#contact">Schedule a Discovery Call</a>
+          <Button asChild variant="primary-accent">
+            <a href="#contact">Get Started Today</a>
           </Button>
         </div>
       </div>

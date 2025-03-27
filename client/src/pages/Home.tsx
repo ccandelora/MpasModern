@@ -12,9 +12,57 @@ import CallToAction from '@/components/sections/CallToAction';
 import Contact from '@/components/sections/Contact';
 
 const Home = () => {
+  // Home page specific schema
+  const homePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Massachusetts Police Accreditation Solutions | Leading Experts in Police Accreditation",
+    "description": "Expert consulting to help Massachusetts police departments achieve accreditation through specialized consulting, training, and support services.",
+    "url": "https://mpas.boston/",
+    "mainEntity": {
+      "@type": "ProfessionalService",
+      "name": "Massachusetts Police Accreditation Solutions",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Police Accreditation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Initial Assessment",
+              "description": "A comprehensive evaluation of your department's current policies, procedures, and practices compared to accreditation standards."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Policy Development",
+              "description": "Creation and implementation of compliant policies tailored to your department's specific needs and community context."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Staff Training",
+              "description": "Comprehensive training programs to ensure all personnel understand accreditation requirements and their role in the process."
+            }
+          }
+        ]
+      }
+    }
+  };
+
   return (
     <>
-      <Meta />
+      <Meta 
+        title="Massachusetts Police Accreditation Solutions | Leading Experts in Police Accreditation"
+        description="Massachusetts' premier consulting firm helping police departments achieve accreditation through expert consulting, policy development, training, and ongoing support."
+        keywords="massachusetts police accreditation, police department consulting, law enforcement standards, accreditation process, police policy development, law enforcement consulting, Massachusetts police standards"
+        schema={homePageSchema}
+      />
       <Hero />
       <ClientLogos />
       <About />

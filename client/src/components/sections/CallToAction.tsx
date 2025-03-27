@@ -10,11 +10,11 @@ const CallToAction = () => {
             Schedule a free consultation to discuss your department's needs and how we can help you achieve accreditation success.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button asChild className="bg-accent hover:bg-accent/90 text-white">
-              <a href="#contact">Request a Consultation</a>
+            <Button asChild variant="primary-accent">
+              <a href="#contact">Contact Us Today</a>
             </Button>
             <Button asChild variant="outline" className="bg-white text-primary border-white hover:bg-white/90 hover:text-primary">
-              <a href="tel:6175551234">Call Us: (617) 555-1234</a>
+              <a href="#about">Learn More About Us</a>
             </Button>
           </div>
         </div>

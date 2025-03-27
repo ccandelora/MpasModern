@@ -77,55 +77,55 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section id="contact" className="py-16 md:py-24" aria-labelledby="contact-heading">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2">
-            <h2 className="text-primary text-3xl font-bold mb-4">Contact Us</h2>
+            <h2 id="contact-heading" className="text-primary text-3xl font-bold mb-4">Contact Us</h2>
             <p className="text-lg mb-8">
               Have questions about our services or ready to start your accreditation journey? Reach out to our team of experts today.
             </p>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
-                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white">
+                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white" aria-hidden="true">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary mb-1">Office Location</h3>
-                  <p>
+                  <address className="not-italic">
                     {contactInfo.address.split('\n').map((line, i) => (
                       <span key={i}>
                         {line}
                         {i < contactInfo.address.split('\n').length - 1 && <br />}
                       </span>
                     ))}
-                  </p>
+                  </address>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white">
+                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white" aria-hidden="true">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                  <p>{contactInfo.phone}</p>
+                  <p><a href={`tel:${contactInfo.phone.replace(/\D/g,'')}`} className="hover:underline focus:outline-none focus:underline">{contactInfo.phone}</a></p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white">
+                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white" aria-hidden="true">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary mb-1">Email</h3>
-                  <p>{contactInfo.email}</p>
+                  <p><a href={`mailto:${contactInfo.email}`} className="hover:underline focus:outline-none focus:underline">{contactInfo.email}</a></p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white">
+                <div className="bg-primary-600 rounded-full p-3 mr-4 text-white" aria-hidden="true">
                   <Clock className="h-5 w-5" />
                 </div>
                 <div>
@@ -142,25 +142,25 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="flex space-x-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition duration-300" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
+            <div className="flex space-x-4" aria-label="Social media links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-primary" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5" aria-hidden="true" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition duration-300" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-primary" aria-label="Twitter">
+                <Twitter className="h-5 w-5" aria-hidden="true" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition duration-300" aria-label="Facebook">
-                <Facebook className="h-5 w-5" />
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-primary text-white h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary/80 transition duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-primary" aria-label="Facebook">
+                <Facebook className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
           </div>
           
           <div className="lg:w-1/2">
             <div className="bg-gray-100 p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold text-primary mb-6">Request Information</h3>
+              <h3 id="form-heading" className="text-2xl font-semibold text-primary mb-6">Request Information</h3>
               
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" aria-labelledby="form-heading">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {contactFormFields.map((field) => {
                       if (field.type === 'textarea') {
@@ -171,12 +171,15 @@ const Contact = () => {
                               name={field.id as keyof ContactFormValues}
                               render={({ field: formField }) => (
                                 <FormItem>
-                                  <FormLabel>{field.label}{field.required && ' *'}</FormLabel>
+                                  <FormLabel htmlFor={field.id}>{field.label}{field.required && ' *'}</FormLabel>
                                   <FormControl>
                                     <Textarea 
+                                      id={field.id}
                                       placeholder={`Enter ${field.label.toLowerCase()}`}
                                       rows={4}
                                       {...formField}
+                                      aria-required={field.required}
+                                      aria-invalid={!!form.formState.errors[field.id as keyof ContactFormValues]}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -193,13 +196,15 @@ const Contact = () => {
                               name={field.id as keyof ContactFormValues}
                               render={({ field: formField }) => (
                                 <FormItem>
-                                  <FormLabel>{field.label}{field.required && ' *'}</FormLabel>
+                                  <FormLabel htmlFor={field.id}>{field.label}{field.required && ' *'}</FormLabel>
                                   <FormControl>
                                     <Select 
                                       onValueChange={formField.onChange} 
                                       defaultValue={formField.value}
+                                      aria-required={field.required}
+                                      aria-invalid={!!form.formState.errors[field.id as keyof ContactFormValues]}
                                     >
-                                      <SelectTrigger>
+                                      <SelectTrigger id={field.id}>
                                         <SelectValue placeholder={`Select ${field.label.toLowerCase()}`} />
                                       </SelectTrigger>
                                       <SelectContent>
@@ -225,12 +230,15 @@ const Contact = () => {
                               name={field.id as keyof ContactFormValues}
                               render={({ field: formField }) => (
                                 <FormItem>
-                                  <FormLabel>{field.label}{field.required && ' *'}</FormLabel>
+                                  <FormLabel htmlFor={field.id}>{field.label}{field.required && ' *'}</FormLabel>
                                   <FormControl>
                                     <Input
+                                      id={field.id}
                                       type={field.type}
                                       placeholder={`Enter ${field.label.toLowerCase()}`}
                                       {...formField}
+                                      aria-required={field.required}
+                                      aria-invalid={!!form.formState.errors[field.id as keyof ContactFormValues]}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -243,7 +251,12 @@ const Contact = () => {
                     })}
                   </div>
                   
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button 
+                    type="submit" 
+                    className="w-full focus:ring-2 focus:ring-offset-2 focus:ring-primary" 
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
+                  >
                     {isSubmitting ? 'Submitting...' : 'Submit Request'}
                   </Button>
                 </form>

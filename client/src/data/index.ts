@@ -147,40 +147,42 @@ export const benefits = [
   },
 ];
 
-// Resources
+// Resources - Updated with functional links
 export const resources = [
   {
     id: 1,
-    title: "Guides & Whitepapers",
-    icon: "file-down",
-    links: [
-      { text: "Accreditation Readiness Guide", icon: "file-pdf" },
-      { text: "Understanding MA State Standards", icon: "file-pdf" },
-      { text: "Cost-Benefit Analysis of Accreditation", icon: "file-pdf" },
-      { text: "Accreditation Manager's Handbook", icon: "file-pdf" },
-    ],
+    title: "MPAC Standards Overview",
+    description: "Learn about mandatory and optional standards for certification and accreditation.",
+    href: "https://masspoliceaccred.net/standards/",
+    icon: "file-text", // Represents a general info page
   },
   {
     id: 2,
-    title: "Templates & Checklists",
-    icon: "tool",
-    links: [
-      { text: "Standard Compliance Tracking Sheet", icon: "file-spreadsheet" },
-      { text: "Policy Template Library", icon: "file-text" },
-      { text: "Assessment Preparation Checklist", icon: "file-text" },
-      { text: "Budget Planning Worksheet", icon: "file-spreadsheet" },
-    ],
+    title: "MPAC Program Document 1 (PDF)", 
+    description: "Download official MPAC program documentation.",
+    href: "https://public.powerdms.com/MPAC1/documents/2554717",
+    icon: "book-open", // Good icon for a manual/document
   },
   {
     id: 3,
-    title: "Training Resources",
-    icon: "graduation-cap",
-    links: [
-      { text: "Accreditation Process Overview", icon: "video" },
-      { text: "Documentation Best Practices", icon: "video" },
-      { text: "Preparing for Assessment Day", icon: "video" },
-      { text: "Upcoming Webinars & Events", icon: "calendar" },
-    ],
+    title: "MPAC Program Document 2 (PDF)", 
+    description: "Access additional official MPAC documents.",
+    href: "https://public.powerdms.com/MPAC1/documents/2647827",
+    icon: "clipboard-check", // Could relate to assessment/compliance
+  },
+  {
+    id: 4,
+    title: "List of Participating Agencies (PDF)",
+    description: "View the current list of agencies participating in MPAC programs.",
+    href: "https://masspoliceaccred.net/wp-content/uploads/2024/06/Participating-Agencies-6-26-24-CM.pdf",
+    icon: "list-checks", // Good icon for a list
+  },
+  {
+    id: 5,
+    title: "MPAC Training & Events",
+    description: "Find information on upcoming training sessions, webinars, and conferences.",
+    href: "https://masspoliceaccred.net/training-events/",
+    icon: "calendar", // Keep calendar icon
   },
 ];
 

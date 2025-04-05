@@ -1,4 +1,4 @@
-const PEXELS_API_KEY = 'Vp2FtssSVSlYt993M9QabtpBtJt52NgzNNSTK4ptms7M4t7wkn517lGN';
+const PEXELS_API_KEY = '';
 
 export async function searchPexelsImage(query: string) {
   try {

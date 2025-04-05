@@ -1,4 +1,10 @@
 import { ArrowRight, Search, FileText, Users, Folder, ClipboardCheck, RefreshCw, Check } from 'lucide-react';
+import initialAssessmentImage from '../../assets/images/image2.png';
+import policyDevelopmentImage from '../../assets/images/image6.png';
+import staffTrainingImage from '../../assets/images/image7.png';
+import documentationImage from '../../assets/images/image11.png';
+import mockAssessmentImage from '../../assets/images/image12.png';
+import ongoingComplianceImage from '../../assets/images/image14.png';
 
 interface ServiceCardProps {
   title: string;
@@ -21,14 +27,14 @@ const iconMap: Record<string, React.ReactNode> = {
 // Function to get image URL based on alt text for demo purposes
 const getImageUrl = (alt: string) => {
   const imageMap: Record<string, string> = {
-    'Initial Assessment and Gap Analysis': 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    'Policy Development and Implementation': 'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    'Staff Training and Education': 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    'Documentation and Evidence Management': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    'Mock Assessment Preparation': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    'Ongoing Compliance Support': 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    'Initial Assessment and Gap Analysis': initialAssessmentImage,
+    'Policy Development and Implementation': policyDevelopmentImage,
+    'Staff Training and Education': staffTrainingImage,
+    'Documentation and Evidence Management': documentationImage,
+    'Assessment Preparation': mockAssessmentImage,
+    'Ongoing Compliance Support': ongoingComplianceImage,
   };
-  return imageMap[alt] || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f';
+  return imageMap[alt] || initialAssessmentImage;
 };
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ 

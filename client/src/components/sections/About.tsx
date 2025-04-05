@@ -1,6 +1,7 @@
 import { aboutPoints } from '@/data';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import aboutImage from '../../assets/images/image30.png';
 
 const About = () => {
   return (
@@ -9,7 +10,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
             <img 
-              src="https://images.unsplash.com/photo-1594753154778-273013529793?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
+              src={aboutImage}
               alt="Police officers in a meeting" 
               className="rounded-lg shadow-lg w-full h-auto" 
             />

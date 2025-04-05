@@ -257,22 +257,20 @@ export const contactInfo = {
 // Navigation Links
 export const navigationLinks = [
   { text: "About", href: "#about" },
+  { text: "Team", href: "#team" },
   { text: "Services", href: "#services" },
   { text: "Process", href: "#process" },
   { text: "Resources", href: "#resources" },
   { text: "Success Stories", href: "#testimonials" },
-  { text: "Blog", href: "#blog" },
-  { text: "Contact", href: "#contact" },
+  { text: "Blog", href: "#blog" }
 ];
 
 // Footer Links
 export const footerServices = [
-  { text: "Initial Assessment", href: "#services" },
   { text: "Policy Development", href: "#services" },
-  { text: "Staff Training", href: "#services" },
-  { text: "Documentation Systems", href: "#services" },
-  { text: "Assessment Preparation", href: "#services" },
-  { text: "Ongoing Support", href: "#services" },
+  { text: "Accreditation Preparation", href: "#services" },
+  { text: "Training & Education", href: "#services" },
+  { text: "Compliance Auditing", href: "#services" },
 ];
 
 // Form Fields

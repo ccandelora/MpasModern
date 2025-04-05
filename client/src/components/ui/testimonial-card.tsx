@@ -17,9 +17,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
     <div className="bg-white p-8 rounded-lg shadow-lg">
       {/* Star Rating */}
       <div className="flex items-center mb-4">
-        <div className="text-accent">
+        <div className="text-yellow-400">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="h-5 w-5 inline-block fill-current" />
+            <Star key={i} className="h-6 w-6 inline-block fill-current" />
           ))}
         </div>
       </div>

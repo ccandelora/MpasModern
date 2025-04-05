@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { navigationLinks } from '@/data';
@@ -7,6 +7,7 @@ import { navigationLinks } from '@/data';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
 
   // Toggle mobile menu
   const toggleMenu = () => {
@@ -35,6 +36,41 @@ const Header = () => {
     };
   }, []);
 
+  // Function to handle navigation
+  const handleNavigation = (href: string) => {
+    if (location === '/') {
+      // If on home page, use the hash
+      return href;
+    } else {
+      // If on another page, return to home with hash
+      return `/${href.replace('#', '')}`;
+    }
+  };
+
+  // Function to handle click events
+  const handleClick = (e: React.MouseEvent, href: string) => {
+    if (location === '/') {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      e.preventDefault();
+      // Navigate to home page first
+      window.location.href = '/';
+      // Then scroll to the section after a short delay to ensure the page has loaded
+      setTimeout(() => {
+        const targetId = href.replace('#', '');
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <header className={`sticky top-0 z-50 w-full bg-white transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`} role="banner">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -62,43 +98,62 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6" aria-label="Main navigation">
           {navigationLinks.map((link, index) => (
-            <a 
+            <Link 
               key={index} 
-              href={link.href} 
+              href={handleNavigation(link.href)}
+              onClick={(e) => handleClick(e, link.href)}
               className="text-foreground hover:text-primary font-medium focus:outline-none focus:underline"
             >
               {link.text}
-            </a>
+            </Link>
           ))}
           <Button asChild variant="default">
-            <a href="#contact" className="focus:ring-2 focus:ring-offset-2 focus:ring-primary-foreground">Contact Us</a>
+            <Link 
+              href={handleNavigation('#contact')} 
+              onClick={(e) => handleClick(e, '#contact')}
+              className="focus:ring-2 focus:ring-offset-2 focus:ring-primary-foreground"
+            >
+              Contact Us
+            </Link>
           </Button>
         </nav>
       </div>
       
       {/* Mobile Navigation */}
-      <nav 
-        id="mobile-navigation"
-        className={`md:hidden bg-white shadow-lg transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
-        aria-label="Mobile navigation"
-        aria-hidden={!isMenuOpen}
-      >
-        <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-          {navigationLinks.map((link, index) => (
-            <a 
-              key={index} 
-              href={link.href} 
-              className="text-foreground hover:text-primary font-medium py-2 border-b border-neutral-200 focus:outline-none focus:text-primary"
-              onClick={closeMenu}
-            >
-              {link.text}
-            </a>
-          ))}
-          <Button asChild className="mt-2 w-full" onClick={closeMenu}>
-            <a href="#contact" className="focus:ring-2 focus:ring-offset-2 focus:ring-primary-foreground">Contact Us</a>
-          </Button>
-        </div>
-      </nav>
+      {isMenuOpen && (
+        <nav 
+          id="mobile-navigation"
+          className="md:hidden bg-white border-t border-gray-100 py-4"
+          aria-label="Mobile navigation"
+        >
+          <div className="container mx-auto px-4 flex flex-col space-y-4">
+            {navigationLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={handleNavigation(link.href)}
+                onClick={(e) => {
+                  handleClick(e, link.href);
+                  closeMenu();
+                }}
+                className="text-foreground hover:text-primary font-medium py-2"
+              >
+                {link.text}
+              </Link>
+            ))}
+            <Button asChild variant="default" className="w-full">
+              <Link 
+                href={handleNavigation('#contact')} 
+                onClick={(e) => {
+                  handleClick(e, '#contact');
+                  closeMenu();
+                }}
+              >
+                Contact Us
+              </Link>
+            </Button>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

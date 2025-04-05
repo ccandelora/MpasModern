@@ -1,5 +1,4 @@
 import { resources } from '@/data';
-import { Button } from '@/components/ui/button';
 import { 
   FileDown, Wrench, GraduationCap, FileText, FileSpreadsheet, Video, Calendar 
 } from 'lucide-react';
@@ -37,7 +36,7 @@ const Resources = () => {
               <ul className="space-y-3">
                 {resource.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a href="#" className="flex items-center text-primary-600 hover:text-accent transition duration-300">
+                    <a href="#" className="flex items-center text-blue-600 hover:text-blue-800 font-medium transition duration-300 focus:outline-none focus:underline">
                       <span className="mr-2">{iconMap[link.icon]}</span>
                       <span>{link.text}</span>
                     </a>
@@ -46,12 +45,6 @@ const Resources = () => {
               </ul>
             </div>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <Button asChild>
-            <a href="#">Access Resource Library</a>
-          </Button>
         </div>
       </div>
     </section>

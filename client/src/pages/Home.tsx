@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
+import { useLocation } from 'wouter';
 import Meta from '@/components/ui/meta';
 import Hero from '@/components/sections/Hero';
 import ClientLogos from '@/components/sections/ClientLogos';
 import About from '@/components/sections/About';
+import Team from '@/components/sections/Team';
 import Services from '@/components/sections/Services';
 import Process from '@/components/sections/Process';
 import Benefits from '@/components/sections/Benefits';
@@ -12,6 +15,23 @@ import CallToAction from '@/components/sections/CallToAction';
 import Contact from '@/components/sections/Contact';
 
 const Home = () => {
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    const hash = window.location.hash;
+    if (hash) {
+      // Remove the # from the hash
+      const sectionId = hash.substring(1);
+      // Find the element with the matching ID
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Scroll to the element
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   // Home page specific schema
   const homePageSchema = {
     "@context": "https://schema.org",
@@ -56,25 +76,28 @@ const Home = () => {
   };
 
   return (
-    <>
-      <Meta 
-        title="Massachusetts Police Accreditation Solutions | Leading Experts in Police Accreditation"
-        description="Massachusetts' premier consulting firm helping police departments achieve accreditation through expert consulting, policy development, training, and ongoing support."
-        keywords="massachusetts police accreditation, police department consulting, law enforcement standards, accreditation process, police policy development, law enforcement consulting, Massachusetts police standards"
-        schema={homePageSchema}
-      />
-      <Hero />
-      <ClientLogos />
-      <About />
-      <Services />
-      <Process />
-      <Benefits />
-      <Resources />
-      <Testimonials />
-      <Blog />
-      <CallToAction />
-      <Contact />
-    </>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow">
+        <Meta 
+          title="Massachusetts Police Accreditation Solutions | Leading Experts in Police Accreditation"
+          description="Massachusetts' premier consulting firm helping police departments achieve accreditation through expert consulting, policy development, training, and ongoing support."
+          keywords="massachusetts police accreditation, police department consulting, law enforcement standards, accreditation process, police policy development, law enforcement consulting, Massachusetts police standards"
+          schema={homePageSchema}
+        />
+        <Hero />
+        <ClientLogos />
+        <About />
+        <Team />
+        <Services />
+        <Process />
+        <Benefits />
+        <Resources />
+        <Testimonials />
+        <Blog />
+        <CallToAction />
+        <Contact />
+      </main>
+    </div>
   );
 };
 

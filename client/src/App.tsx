@@ -7,11 +7,18 @@ import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 
+// Import blog post pages
+import AccreditationStandards from "@/pages/blog/2025-massachusetts-accreditation-standards";
+import TechnologyAccreditation from "@/pages/blog/leveraging-technology-in-accreditation-process";
+import PublicTrust from "@/pages/blog/building-public-trust-through-accreditation";
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      {/* Add additional routes here */}
+      <Route path="/blog/2025-massachusetts-accreditation-standards" component={AccreditationStandards} />
+      <Route path="/blog/leveraging-technology-in-accreditation-process" component={TechnologyAccreditation} />
+      <Route path="/blog/building-public-trust-through-accreditation" component={PublicTrust} />
       <Route component={NotFound} />
     </Switch>
   );

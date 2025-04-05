@@ -1,6 +1,5 @@
-import { blogPosts } from '@/data';
-import BlogCard from '@/components/ui/blog-card';
-import { Button } from '@/components/ui/button';
+import { blogPosts } from '@/data/blog-posts';
+import { BlogCard } from '@/components/ui/BlogCard';
 
 const Blog = () => {
   return (
@@ -12,17 +11,11 @@ const Blog = () => {
             Stay informed about accreditation trends, law enforcement best practices, and industry updates through our regularly published articles.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <Button asChild>
-            <a href="#">View All Articles</a>
-          </Button>
         </div>
       </div>
     </section>

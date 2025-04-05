@@ -1,11 +1,10 @@
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, ClipboardCheck, Users, Settings, Target } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import { searchPexelsImage } from '@/utils/pexels';
-import Image from 'next/image';
-import processReviewImage from '@/assets/images/process-review.jpg';
-import processPlanningImage from '@/assets/images/process-planning.jpg';
-import processDevelopmentImage from '@/assets/images/process-development.jpg';
-import processTrainingImage from '@/assets/images/process-training.jpg';
+import processReviewImage from '@/assets/images/process-review.webp';
+import processPlanningImage from '@/assets/images/process-planning.webp';
+import processDevelopmentImage from '@/assets/images/process-development.webp';
+import processTrainingImage from '@/assets/images/process-training.webp';
 
 interface ProcessStep {
   title: string;
@@ -36,13 +35,13 @@ const processSteps: ProcessStep[] = [
   }
 ];
 
-const Process = () => {
+const ProcessComponent = () => {
   return (
     <section id="process" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-primary text-3xl font-bold mb-4">Our Process</h2>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             A comprehensive approach to policy development and implementation
           </p>
         </div>
@@ -79,5 +78,7 @@ const Process = () => {
     </section>
   );
 };
+
+const Process = React.memo(ProcessComponent);
 
 export default Process;

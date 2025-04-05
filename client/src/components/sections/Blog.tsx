@@ -1,13 +1,14 @@
+import React from 'react';
 import { blogPosts } from '@/data/blog-posts';
 import { BlogCard } from '@/components/ui/BlogCard';
 
-const Blog = () => {
+const BlogComponent = () => {
   return (
     <section id="blog" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-primary text-3xl font-bold mb-4">Latest Insights</h2>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             Stay informed about accreditation trends, law enforcement best practices, and industry updates through our regularly published articles.
           </p>
         </div>
@@ -21,5 +22,7 @@ const Blog = () => {
     </section>
   );
 };
+
+const Blog = React.memo(BlogComponent);
 
 export default Blog;

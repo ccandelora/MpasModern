@@ -1,3 +1,4 @@
+import React from 'react';
 import { benefits } from '@/data';
 import { Button } from '@/components/ui/button';
 import { Shield, Scale, TrendingUp, Users } from 'lucide-react';
@@ -10,7 +11,7 @@ const iconMap: Record<string, React.ReactNode> = {
   'users': <Users className="h-8 w-8" />,
 };
 
-const Benefits = () => {
+const BenefitsComponent = () => {
   return (
     <section className="py-16 md:py-24 bg-primary text-white">
       <div className="container mx-auto px-4">
@@ -42,5 +43,7 @@ const Benefits = () => {
     </section>
   );
 };
+
+const Benefits = React.memo(BenefitsComponent);
 
 export default Benefits;

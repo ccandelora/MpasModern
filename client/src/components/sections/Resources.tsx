@@ -1,3 +1,4 @@
+import React from 'react';
 import { resources } from '@/data';
 import { 
   FileDown, Wrench, GraduationCap, FileText, FileSpreadsheet, Video, Calendar 
@@ -15,13 +16,13 @@ const iconMap: Record<string, React.ReactNode> = {
   'calendar': <Calendar className="h-5 w-5" />,
 };
 
-const Resources = () => {
+const ResourcesComponent = () => {
   return (
     <section id="resources" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-primary text-3xl font-bold mb-4">Accreditation Resources</h2>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             Access our collection of guides, templates, and tools designed to support your department's accreditation journey.
           </p>
         </div>
@@ -50,5 +51,7 @@ const Resources = () => {
     </section>
   );
 };
+
+const Resources = React.memo(ResourcesComponent);
 
 export default Resources;

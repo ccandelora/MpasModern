@@ -8,10 +8,12 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default defineConfig({
   plugins: [
     react(),
-    runtimeErrorOverlay(),
+    !isProduction ? runtimeErrorOverlay() : undefined,
     themePlugin(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
@@ -21,7 +23,7 @@ export default defineConfig({
           ),
         ]
       : []),
-  ],
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -33,5 +35,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
+    sourcemap: false,
   },
 });

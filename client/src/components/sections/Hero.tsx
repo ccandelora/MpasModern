@@ -1,7 +1,8 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import videoBackground from '../../assets/videos/compressed/background-compressed.mp4';
 
-const Hero = () => {
+const HeroComponent = () => {
   return (
     <section className="relative bg-primary text-white overflow-hidden" aria-labelledby="hero-heading">
       <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -35,5 +36,7 @@ const Hero = () => {
     </section>
   );
 };
+
+const Hero = React.memo(HeroComponent);
 
 export default Hero;

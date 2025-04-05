@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -38,7 +38,7 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const Contact = () => {
+const ContactComponent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Initialize form
@@ -82,7 +82,7 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2">
             <h2 id="contact-heading" className="text-primary text-3xl font-bold mb-4">Contact Us</h2>
-            <p className="text-lg mb-8">
+            <p className="text-lg text-gray-600 mb-8">
               Have questions about our services or ready to start your accreditation journey? Reach out to our team of experts today.
             </p>
             
@@ -251,13 +251,8 @@ const Contact = () => {
                     })}
                   </div>
                   
-                  <Button 
-                    type="submit" 
-                    className="w-full focus:ring-2 focus:ring-offset-2 focus:ring-primary" 
-                    disabled={isSubmitting}
-                    aria-busy={isSubmitting}
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                  <Button type="submit" disabled={isSubmitting} className="w-full">
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </Form>
@@ -268,5 +263,7 @@ const Contact = () => {
     </section>
   );
 };
+
+const Contact = React.memo(ContactComponent);
 
 export default Contact;

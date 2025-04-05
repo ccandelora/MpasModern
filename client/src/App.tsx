@@ -1,16 +1,17 @@
+import { Suspense, lazy } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Layout from "@/components/layout/Layout";
-import Home from "@/pages/Home";
-import NotFound from "@/pages/not-found";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 
-// Import blog post pages
-import AccreditationStandards from "@/pages/blog/2025-massachusetts-accreditation-standards";
-import TechnologyAccreditation from "@/pages/blog/leveraging-technology-in-accreditation-process";
-import PublicTrust from "@/pages/blog/building-public-trust-through-accreditation";
+// Lazy load page components
+const Home = lazy(() => import("@/pages/Home"));
+const NotFound = lazy(() => import("@/pages/not-found"));
+const AccreditationStandards = lazy(() => import("@/pages/blog/2025-massachusetts-accreditation-standards"));
+const TechnologyAccreditation = lazy(() => import("@/pages/blog/leveraging-technology-in-accreditation-process"));
+const PublicTrust = lazy(() => import("@/pages/blog/building-public-trust-through-accreditation"));
 
 function Router() {
   return (
@@ -24,12 +25,21 @@ function Router() {
   );
 }
 
+// Basic loading spinner component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+  </div>
+);
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Layout>
         <ScrollToTop />
-        <Router />
+        <Suspense fallback={<LoadingFallback />}>
+          <Router />
+        </Suspense>
       </Layout>
       <Toaster />
     </QueryClientProvider>

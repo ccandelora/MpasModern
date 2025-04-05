@@ -1,6 +1,7 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
 
-const CallToAction = () => {
+const CallToActionComponent = () => {
   return (
     <section className="bg-primary py-16">
       <div className="container mx-auto px-4">
@@ -22,5 +23,7 @@ const CallToAction = () => {
     </section>
   );
 };
+
+const CallToAction = React.memo(CallToActionComponent);
 
 export default CallToAction;

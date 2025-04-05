@@ -1,3 +1,4 @@
+import React from 'react';
 import { testimonials, caseStudy } from '@/data';
 import TestimonialCard from '@/components/ui/testimonial-card';
 import { Button } from '@/components/ui/button';
@@ -10,13 +11,13 @@ const iconMap: Record<string, React.ReactNode> = {
   'users': <Users className="h-5 w-5 text-accent" />,
 };
 
-const Testimonials = () => {
+const TestimonialsComponent = () => {
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-primary text-3xl font-bold mb-4">Success Stories</h2>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             See how departments across Massachusetts have achieved accreditation success with our help.
           </p>
         </div>
@@ -66,5 +67,7 @@ const Testimonials = () => {
     </section>
   );
 };
+
+const Testimonials = React.memo(TestimonialsComponent);
 
 export default Testimonials;

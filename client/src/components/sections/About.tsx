@@ -1,9 +1,10 @@
+import React from 'react';
 import { aboutPoints } from '@/data';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
-import aboutImage from '../../assets/images/image30.png';
+import aboutImage from '../../assets/images/image30.webp';
 
-const About = () => {
+const AboutComponent = () => {
   return (
     <section id="about" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -42,5 +43,7 @@ const About = () => {
     </section>
   );
 };
+
+const About = React.memo(AboutComponent);
 
 export default About;

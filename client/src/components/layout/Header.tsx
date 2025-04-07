@@ -3,6 +3,7 @@ import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { navigationLinks } from '@/data';
+import logoImage from '@/assets/images/MPAS_logo_solid-sheild_navy-type_transparent-bg.webp'; // Use .webp
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,11 +74,14 @@ const Header = () => {
 
   return (
     <header className={`sticky top-0 z-50 w-full bg-white transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`} role="banner">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2" aria-label="MPAS - Massachusetts Police Accreditation Solutions - Home">
-          <div className="text-primary font-bold text-2xl">MPAS</div>
-          <span className="hidden md:inline-block text-foreground text-sm font-medium">Massachusetts Police Accreditation Solutions</span>
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo - Updated to use image */}
+        <Link href="/" className="flex items-center" aria-label="MPAS - Massachusetts Police Accreditation Solutions - Home">
+          <img 
+            src={logoImage} 
+            alt="MPAS Logo - Massachusetts Police Accreditation Solutions" 
+            className="h-16 w-auto" // Increased height from h-12 to h-16
+          />
         </Link>
         
         {/* Mobile Menu Button */}

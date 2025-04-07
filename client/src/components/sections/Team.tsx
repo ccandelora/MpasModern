@@ -43,8 +43,8 @@ const TeamComponent = () => {
                 </p>
               </div>
               
-              <Button asChild variant="outline" className="w-full">
-                <a href="#contact">
+              <Button asChild variant="outline" className="w-full mt-6">
+                <a href="mailto:lobrien@mpas.boston">
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Linda
                 </a>
@@ -83,8 +83,8 @@ const TeamComponent = () => {
                 </p>
               </div>
               
-              <Button asChild variant="outline" className="w-full">
-                <a href="#contact">
+              <Button asChild variant="outline" className="w-full mt-6">
+                <a href="mailto:cbettencourt@mpas.boston">
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Chris
                 </a>
